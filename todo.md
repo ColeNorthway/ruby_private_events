@@ -16,8 +16,9 @@
 - [x] Update your README to be descriptive and link to this project.
 #### Data
 - [x] Create the database
-- [ ] List out migrations
-- [ ] Create our schema and review it
+- [x] List out migrations
+- [x] Create our schema and review it
+- [ ] Fix user profile 'users_id'
 - [ ] Add validations and event cleanup after user deletion to our models
 #### Routing and Controllers
 - [ ] Create all routes
@@ -89,7 +90,7 @@ bin/rails generate model Event name:string! date:date! location:string! users:re
 
 # Migrate Event Attendance
 #  - Create the model but edit the migration manually
-bin/rails generate model EventAttendance users:references events:references
+bin/rails generate model EventAttendance event_id:integer! attendee_id:integer!
 ```
 
 ### Migration Creation
@@ -98,8 +99,12 @@ bin/rails generate model EventAttendance users:references events:references
 class CreateProducts < ActiveRecord::Migration[8.1]
   def change
     create_table :event_attendances, primary_key: [:event_id, :attendee_id] do |t|
-      # ...      
+      t.integer :event_id, null: false
+      t.integer :attendee_id, null: false
     end
+    
+    add_foreign_key :event_attendances, :users, column: :attendee_id, primary_key: :id
+    add_foreign_key :event_attendances, :events, column: :event_id, primary_key: :id
   end
 end
 ```

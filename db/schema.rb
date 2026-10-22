@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_22_031154) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_22_035311) do
+  create_table "event_attendances", primary_key: ["event_id", "attendee_id"], force: :cascade do |t|
+    t.integer "event_id", null: false
+    t.integer "attendee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "name", null: false
     t.date "date", null: false
@@ -28,10 +35,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_22_031154) do
     t.boolean "gender"
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "users_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_user_profiles_on_users_id", unique: true
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +50,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_22_031154) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "event_attendances", "events"
+  add_foreign_key "event_attendances", "users", column: "attendee_id"
   add_foreign_key "events", "users", column: "host_id"
-  add_foreign_key "user_profiles", "users", column: "users_id"
+  add_foreign_key "user_profiles", "users"
 end
