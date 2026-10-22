@@ -46,7 +46,7 @@
 - [ ] Get authorization
   - Pre-handlers
 #### Edit User Profile Association
-- [ ] Make the association required in the user model
+- [x] Make the association required in the user model
 - [ ] Add enum for the gender boolean
 #### Event and User Controls
 - [ ] Get our events index as the website root

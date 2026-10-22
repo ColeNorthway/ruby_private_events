@@ -6,4 +6,6 @@ class UserProfile < ApplicationRecord
   validates :last_name, presence: true
 
   belongs_to :user
+
+  enum :gender, { girl: false, boy: true }
 end
