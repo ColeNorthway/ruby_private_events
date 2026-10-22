@@ -19,8 +19,9 @@
 - [x] List out migrations
 - [x] Create our schema and review it
 - [x] Fix user profile 'users_id'
-- [ ] Add validations for non-null and unique
+- [x] Add validations for non-null and unique
 - [ ] Specify relationships in models
+- [ ] Add validates associated
 - [ ] Add event cleanup after user deletion to our models
 #### Routing and Controllers
 - [ ] Create all routes
@@ -109,4 +110,11 @@ class CreateProducts < ActiveRecord::Migration[8.1]
     add_foreign_key :event_attendances, :events, column: :event_id, primary_key: :id
   end
 end
+```
+
+### Test
+```ruby
+# Host == h1
+# Attendees == a1 - a3
+# Event == e
 ```
