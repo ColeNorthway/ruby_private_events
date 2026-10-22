@@ -1,5 +1,17 @@
 <%= form_with model: @user, url: user_path, method: @user.new_record? ? :post : :patch do |form| %>
   <div>
+    <%= fields_for :user_profile, @user.user_profile do |profile_form| %>
+      <%= profile_form.text_field :city%>
+      <%= profile_form.text_field :state%>
+      <%= profile_form.text_field :country%>
+      <%= form.radio_button :gender, "male", presence: true %>
+      <%= form.label :male, "Male" %>
+      <%= form.radio_button :gender, "female", presence: true %>
+      <%= form.label :female, "Female" %>
+      <%= form.text_field :first_name %>
+      <%= form.text_field :last_name %>
+    <% end %>
+
     <%= form.text_field :username, presence: true %>
     <%= form.email_field :email, presence: true %>
 
