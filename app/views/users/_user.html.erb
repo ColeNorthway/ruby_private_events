@@ -1,0 +1,21 @@
+<%= form_with model: @user, url: user_path, method: @user.new_record? ? :post : :patch do |form| %>
+  <div>
+    <%= form.text_field :username, presence: true %>
+    <%= form.email_field :email, presence: true %>
+
+    <%# Password challenge for reset %>
+    <% unless @user.new_record? %>
+      <%= form.password_field :password_challenge, presence: true %>
+    <% end %>
+
+    <%= form.password_field :password, presence: true %>
+    <%= form.password_field :password_confirmation, presence: true %>
+  </div>
+
+  <%# Create a new user or edit existing %>
+  <% if @user.new_record? %>
+    <%= form.submit "Signup" %>
+  <% else %>
+    <%= form.submit "Save" %>
+  <% end %>
+<% end %>
