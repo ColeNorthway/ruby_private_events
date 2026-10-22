@@ -36,7 +36,7 @@
   - event
   - session
 #### Users and Authentication
-- [ ] Add bcrypt to our gemfile and bundle install
+- [x] Add bcrypt to our gemfile and bundle install
 - [ ] Add password_digest to user
 - [ ] Get signup (user#create)
 - [ ] Get login (session#create)
