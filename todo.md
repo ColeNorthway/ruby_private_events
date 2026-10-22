@@ -18,8 +18,10 @@
 - [x] Create the database
 - [x] List out migrations
 - [x] Create our schema and review it
-- [ ] Fix user profile 'users_id'
-- [ ] Add validations and event cleanup after user deletion to our models
+- [x] Fix user profile 'users_id'
+- [ ] Add validations for non-null and unique
+- [ ] Specify relationships in models
+- [ ] Add event cleanup after user deletion to our models
 #### Routing and Controllers
 - [ ] Create all routes
   - user (singleton)
