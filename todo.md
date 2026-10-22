@@ -21,7 +21,7 @@
 - [x] Fix user profile 'users_id'
 - [x] Add validations for non-null and unique
 - [x] Specify relationships in models
-- [ ] Add validates associated
+- [x] Add validates associated
 - [ ] Add event cleanup after user deletion to our models
 #### Routing and Controllers
 - [ ] Create all routes

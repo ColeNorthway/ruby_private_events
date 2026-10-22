@@ -12,6 +12,6 @@ class Event < ApplicationRecord
 
   # Has many event attendees
   #   - Attendees are through a join table called "event_attendances"
-  has_many :event_attendances, foreign_key: :event_id
+  has_many :event_attendances, foreign_key: :event_id, dependent: :destroy
   has_many :attendees, through: :event_attendances
 end
