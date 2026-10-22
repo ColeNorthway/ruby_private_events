@@ -3,8 +3,6 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :location, presence: true
   validates_associated :attendees
-  validates_associated :event_attendances
-  validates_associated :host
 
   # The event creator
   #   - Works

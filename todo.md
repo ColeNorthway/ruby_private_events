@@ -37,7 +37,7 @@
   - session
 #### Users and Authentication
 - [x] Add bcrypt to our gemfile and bundle install
-- [ ] Add password_digest to user
+- [x] Add password_digest to user
 - [ ] Get signup (user#create)
 - [ ] Get login (session#create)
 - [ ] Get logout (session#destroy)
@@ -45,6 +45,9 @@
 - [ ] Get delete profile (user#destroy)
 - [ ] Get authorization
   - Pre-handlers
+#### Edit User Profile Association
+- [ ] Make the association required in the user model
+- [ ] Add enum for the gender boolean
 #### Event and User Controls
 - [ ] Get our events index as the website root
 - [ ] Get show for an event
