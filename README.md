@@ -1,5 +1,6 @@
 # ruby_private_events
 An assignment from The Odin Project: Ruby on Rails. https://www.theodinproject.com/lessons/ruby-on-rails-private-events
 
-<img width="802" height="1051" alt="image" src="https://github.com/user-attachments/assets/df16bbc1-86cc-46ef-ac35-1c0876782579" />
+<img width="1003" height="1141" alt="image" src="https://github.com/user-attachments/assets/2c10f187-d332-4bdd-8d32-06ff2c669047" />
+
 
