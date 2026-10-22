@@ -38,7 +38,7 @@
 #### Users and Authentication
 - [x] Add bcrypt to our gemfile and bundle install
 - [x] Add password_digest to user
-- [ ] Add remember field to user
+- [x] Add remember field to user
 - [ ] Get signup (user#create)
 - [ ] Get login (session#create)
 - [ ] Get logout (session#destroy)

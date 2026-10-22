@@ -1,33 +1,26 @@
 <%= form_with model: @user, url: user_path, method: @user.new_record? ? :post : :patch do |form| %>
   <div>
-    <%= fields_for :user_profile, @user.user_profile do |profile_form| %>
-      <%= profile_form.text_field :city%>
-      <%= profile_form.text_field :state%>
-      <%= profile_form.text_field :country%>
-      <%= form.radio_button :gender, "male", presence: true %>
-      <%= form.label :male, "Male" %>
-      <%= form.radio_button :gender, "female", presence: true %>
-      <%= form.label :female, "Female" %>
-      <%= form.text_field :first_name %>
-      <%= form.text_field :last_name %>
-    <% end %>
+    <%# Location and Personal Information %>
+    <%= render 'user_profile' %>
 
-    <%= form.text_field :username, presence: true %>
-    <%= form.email_field :email, presence: true %>
+    <%# Username and Email %>
+    Username: <%= form.text_field :username, presence: true %><br>
+    Email: <%= form.email_field :email, presence: true %><br>
 
     <%# Password challenge for reset %>
     <% unless @user.new_record? %>
-      <%= form.password_field :password_challenge, presence: true %>
+      Current Password: <%= form.password_field :password_challenge, presence: true %><br>
     <% end %>
 
-    <%= form.password_field :password, presence: true %>
-    <%= form.password_field :password_confirmation, presence: true %>
+    <%# Password %>
+    Password: <%= form.password_field :password, presence: true %><br>
+    Confirm Password: <%= form.password_field :password_confirmation, presence: true %><br>
   </div>
 
   <%# Create a new user or edit existing %>
   <% if @user.new_record? %>
-    <%= form.submit "Signup" %>
+    <%= form.submit "Signup" %><br>
   <% else %>
-    <%= form.submit "Save" %>
+    <%= form.submit "Save" %><br>
   <% end %>
 <% end %>
