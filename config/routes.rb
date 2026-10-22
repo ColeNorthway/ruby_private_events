@@ -11,4 +11,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # User Singleton
+  resource :user, except: [ :show ]
+
+  # Events
+  resources :events
+
+  # Session Singleton for Auth
+  resource :session, only: [ :new, :create, :destroy ]
 end

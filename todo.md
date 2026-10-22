@@ -22,16 +22,16 @@
 - [x] Add validations for non-null and unique
 - [x] Specify relationships in models
 - [x] Add validates associated
-- [ ] Add event cleanup after user deletion to our models
+- [x] Add event cleanup after user deletion to our models
 #### Routing and Controllers
-- [ ] Create all routes
+- [x] Create all routes
   - user (singleton)
     - new, create, edit, update, destroy
   - event
     - index, show, new, create, edit, update, destroy
   - session
     - new, create, destroy
-- [ ] Create all controllers
+- [x] Create all controllers
   - user
   - event
   - session
