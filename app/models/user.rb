@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+  validates_associated :user_profile
+  validates_associated :created_events
+  validates_associated :event_attendances
+  validates_associated :attended_events
 
   # User signup information like locale and personal info
   has_one :user_profile
