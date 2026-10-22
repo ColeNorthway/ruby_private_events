@@ -23,7 +23,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
+  <%# Universal Style %>
+  <style>
+    .error {
+        background-color: red;
+    }
+  </style>
   <body>
+    <%# Display Flash Messages Universally %>
+    <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
