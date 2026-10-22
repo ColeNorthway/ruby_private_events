@@ -39,6 +39,7 @@
 - [x] Add bcrypt to our gemfile and bundle install
 - [x] Add password_digest to user
 - [x] Add remember field to user
+- [ ] Get the user to have fields still filled on error
 - [ ] Get signup (user#create)
 - [ ] Get login (session#create)
 - [ ] Get logout (session#destroy)
@@ -115,3 +116,6 @@ class CreateProducts < ActiveRecord::Migration[8.1]
   end
 end
 ```
+
+### Fake Passwords
++ aIe28*(32js)()

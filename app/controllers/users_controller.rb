@@ -4,10 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
-      cookies.permanent.encrypted[:remember] = user.id
-      user.update(remember: cookies.encrypted[:remember])
+    @user = User.new(user_params)
+    p "PARAMS"
+    p params
+    p "PARAMS"
+    @user.build_user_profile(user_profile)
+    if @user.save
+      cookies.permanent.encrypted[:remember] = @user.id
+      @user.update(remember: cookies.encrypted[:remember])
       redirect_to events_path
     else
       render :new, status: :unprocessable_entity
@@ -26,6 +30,10 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.expect(user: [ :username, :password, :password_confirmation ])
+    params.expect(user: [ :username, :email, :password, :password_confirmation ])
+  end
+
+  def user_profile
+    params.expect(user_profile: [ :city, :state, :country, :first_name, :last_name, :gender ])
   end
 end
