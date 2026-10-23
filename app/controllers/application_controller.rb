@@ -22,16 +22,11 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    p '1'
-
     return false if cookies.encrypted[:remember].nil?
-
-    p '2'
 
     user = User.find_by(id: cookies.encrypted[:remember])
     return false if user.nil?
 
-    p '3'
     p "User Remember: #{user.remember} ----- Cookies Remember: #{cookies.encrypted[:remember]}"
 
     return false if user.remember != cookies.encrypted[:remember]

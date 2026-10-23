@@ -45,7 +45,7 @@
 - [x] Get logout (session#destroy)
 - [x] Get edit profile (user#edit)
 - [x] Get delete profile (user#destroy)
-- [] Get authorization
+- [x] Get authorization
   - Pre-handlers
 #### Edit User Profile Association
 - [x] Make the association required in the user model
