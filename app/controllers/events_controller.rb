@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   # Helpers
   before_action :find_event, only: [ :show, :edit ]
+  before_action :get_rollcall, only: [ :attended, :hosted ]
 
   # Authorization
   before_action :our_user?, only: [ :edit, :update, :destroy ]
@@ -81,6 +82,26 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def attended
+    user = get_user_via_sess
+    if user.nil?
+      flash[:error] = "Invalid Session"
+      redirect_to events_path
+    end
+
+    @events = user&.attended_events
+  end
+
+  def hosted
+    user = get_user_via_sess
+    if user.nil?
+      flash[:error] = "Invalid Session"
+      redirect_to events_path
+    end
+
+    @events = user&.created_events
+  end
+
   private
 
   def event_params
@@ -100,6 +121,12 @@ class EventsController < ApplicationController
 
   def our_event?
     # Uses user to cross-reference Event.host
+    @user = get_user_via_sess
+  end
+
+  def get_rollcall
+    # Literally the same as our_event? but I like this name better
+    #   - This is because they are used for different things
     @user = get_user_via_sess
   end
 

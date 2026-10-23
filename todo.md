@@ -60,8 +60,8 @@
 #### Work Data Models
 - Routes -> Controller methods -> views -> buttons to see view
 - [x] Attend an Event
-- [ ] Display Attended Events
-- [ ] Display Hosted Events
+- [x] Display Attended Events
+- [x] Display Hosted Events
 
 ### Models
 + User

@@ -1,6 +1,6 @@
 <%= render partial: 'error', locals: { obj: event } %>
 
-<% if params[:action] == 'index' || params[:action] == 'show' %>
+<% if params[:action] != 'edit' %>
   <%= render partial: 'inspect', locals: { event: event } %>
 <% else %>
   <%= render partial: 'modify', locals: { event: event } %>
