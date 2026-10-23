@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:name]) if user.nil?
 
     if user&.authenticate(params[:password])
-      cookies.permanent.encrypted[:remember] = user.id
-      user.update(remember: cookies.encrypted[:remember])
+      set_user_cookie(user)
+      update_user_remember(user)
 
       flash[:success] = "Welcome Back #{user.username}"
       redirect_to events_path
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(id: cookies.encrypted[:remember])
+    user = get_user_via_sess
     cookies.delete(:remember)
     user&.update(remember: nil)
 

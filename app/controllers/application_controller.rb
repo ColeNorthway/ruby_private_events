@@ -8,6 +8,20 @@ class ApplicationController < ActionController::Base
   before_action :authenticate
   before_action :auth_state
 
+  protected
+
+  def get_user_via_sess
+    user = User.find_by(id: cookies.encrypted[:remember])
+  end
+
+  def update_user_remember(user)
+    user.update(remember: cookies.encrypted[:remember])
+  end
+
+  def set_user_cookie(user)
+    cookies.permanent.encrypted[:remember] = user.id
+  end
+
   private
 
   def authenticate

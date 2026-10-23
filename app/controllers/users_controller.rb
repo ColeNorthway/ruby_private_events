@@ -9,8 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.build_user_profile(user_profile)
     if @user.save
-      cookies.permanent.encrypted[:remember] = @user.id
-      @user.update(remember: cookies.encrypted[:remember])
+      set_user_cookie(@user)
+      update_user_remember(@user)
 
       flash[:success] = "User Account Created"
       redirect_to events_path

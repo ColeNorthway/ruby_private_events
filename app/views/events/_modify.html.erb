@@ -1,7 +1,16 @@
-<h4>Edit Event: <%= event.name %></h4>
+<% if params[:action] == 'edit' %>
+  <h4>Edit Event: <%= event.name %></h4>
+<% else %>
+  <h4>New Event</h4>
+<% end %>
+
 <%= form_with model: event do |form| %>
   Name: <%= form.text_field :name %><br>
   Date: <%= form.date_field :date %><br>
   Location: <%= form.text_field :location %><br><br>
   <%= form.submit %>
+<% end %>
+
+<% if params[:action] == 'edit' %>
+  <%= button_to "Delete", event, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 <% end %>
