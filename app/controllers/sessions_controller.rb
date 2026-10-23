@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate, only: [ :new, :create ]
+
   def new
   end
 
@@ -10,6 +12,8 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:password])
       cookies.permanent.encrypted[:remember] = user.id
       user.update(remember: cookies.encrypted[:remember])
+
+      flash[:success] = "Welcome Back #{user.username}"
       redirect_to events_path
     else
       flash.now[:error] = "Error invalid username or password"

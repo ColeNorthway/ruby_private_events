@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_associated :created_events
 
   # User signup information like locale and personal info
-  has_one :user_profile, required: true
+  has_one :user_profile, required: true, dependent: :destroy
 
   # Has many created events
   #   - Works

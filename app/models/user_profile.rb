@@ -7,5 +7,5 @@ class UserProfile < ApplicationRecord
 
   belongs_to :user
 
-  enum :gender, { girl: false, boy: true }
+  enum :gender, { female: false, male: true }
 end

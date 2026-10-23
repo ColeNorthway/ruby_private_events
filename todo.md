@@ -42,10 +42,10 @@
 - [x] Get the user to have fields still filled on error
 - [x] Get signup (user#create)
 - [x] Get login (session#create)
-- [ ] Get logout (session#destroy)
-- [ ] Get edit profile (user#edit)
-- [ ] Get delete profile (user#destroy)
-- [ ] Get authorization
+- [x] Get logout (session#destroy)
+- [x] Get edit profile (user#edit)
+- [x] Get delete profile (user#destroy)
+- [] Get authorization
   - Pre-handlers
 #### Edit User Profile Association
 - [x] Make the association required in the user model
@@ -119,3 +119,4 @@ end
 
 ### Fake Passwords
 + aIe28*(32js)()
++ TestTest123$$
