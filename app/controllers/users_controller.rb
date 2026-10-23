@@ -5,9 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    p "PARAMS"
-    p params
-    p "PARAMS"
     @user.build_user_profile(user_profile)
     if @user.save
       cookies.permanent.encrypted[:remember] = @user.id
