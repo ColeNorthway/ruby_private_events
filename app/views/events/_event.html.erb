@@ -1,0 +1,16 @@
+<div class="event">
+  <h4><%= event.name %></h4>
+  <p>Date: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p>Host: <%= event.host.username %></p>
+
+  <% if params[:action] == 'index' %>
+    <%= link_to "Show", event_path(event.id) %>
+  <% end %>
+</div>
+
+<% if params[:action] == 'show' %>
+  <%= render 'footer' %>
+<% else %>
+  <br>
+<% end %>

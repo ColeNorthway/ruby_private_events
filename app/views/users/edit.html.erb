@@ -1,3 +1,5 @@
+<h3>Edit <%= @user.username %></h3>
+
 <%= render 'error' %>
 <%= render @user %>
 <%= button_to "Delete", @user, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
