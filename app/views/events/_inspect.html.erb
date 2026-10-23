@@ -9,5 +9,9 @@
   <% end %>
   <% if event.host == @user && @logged_in %>
     <%= link_to "Edit", edit_event_path(event.id) %>
+  <% elsif @logged_in && !event.attendees.include?(@user)%>
+    <%= button_to "Attend", "/attend/#{event.id}", method: 'post' %>
+  <% elsif @logged_in && event.attendees.include?(@user)%>
+    <%= button_to "Leave", "/attend/#{event.id}", method: 'delete' %>
   <% end %>
 </div>

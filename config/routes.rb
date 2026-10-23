@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   # Events
   resources :events
+  post "/attend/:id", to: "events#attend"
+  delete "/attend/:id", to: "events#unattend"
+  get "/attended", to: "events#attended"
+  get "/hosted", to: "events#hosted"
 
   # Session Singleton for Auth
   resource :session, only: [ :new, :create, :destroy ]

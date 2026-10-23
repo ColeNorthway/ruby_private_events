@@ -56,9 +56,12 @@
 - [x] Get create for an event
 - [x] Get edit for an event
 - [x] Get destroy for an event
-- [ ] Add access controls over everything needed to be authenticated
-    - [ ] For the owner they can change properties
-    - [ ] For another user they can join the event
+- [x] Add access controls over everything needed to be authenticated
+#### Work Data Models
+- Routes -> Controller methods -> views -> buttons to see view
+- [x] Attend an Event
+- [ ] Display Attended Events
+- [ ] Display Hosted Events
 
 ### Models
 + User
