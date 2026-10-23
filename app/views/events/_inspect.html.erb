@@ -7,5 +7,7 @@
   <% if params[:action] == 'index' %>
     <%= link_to "Show", event_path(event.id) %>
   <% end %>
-  <%= link_to "Edit", edit_event_path(event.id) %>
+  <% if event.host == @user && @logged_in %>
+    <%= link_to "Edit", edit_event_path(event.id) %>
+  <% end %>
 </div>

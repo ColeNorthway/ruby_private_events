@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [ :show, :edit ]
+  before_action :our_user?, only: [ :edit, :update, :destroy ]
+  before_action :our_event?, only: [ :show, :index ]
   skip_before_action :authenticate, only: [ :index, :show ]
 
   def index
+    @user = get_user_via_sess
     @events = Event.all
   end
 
@@ -19,10 +22,6 @@ class EventsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
-  end
-
-  def edit
-
   end
 
   def update
@@ -60,17 +59,16 @@ class EventsController < ApplicationController
     end
   end
 
-  def our_post?
-    @foreign_post = false
-    our_helper do
-      @foreign_post = true
-    end
+  def our_event?
+    # Uses user to cross-reference Event.host
+    @user = get_user_via_sess
   end
 
   def our_helper
     event = Event.find(params[:id])
+
     id = event.host.id
-    unless id == cookies.encrypted[:clubhouse_ticket]
+    unless id == cookies.encrypted[:remember] && id
       yield
     end
   end
