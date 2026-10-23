@@ -1,10 +1,11 @@
 <h1>Welcome to Bootleg Eventbrite</h1>
 
-<%= render @events, locals: { called_by: 'index'} %>
+<%= render @events %>
 
 <%= link_to "Sign-Up", new_user_path %>
 <%= link_to "Login", new_session_path %>
 <% if @logged_in %>
   <%= link_to "Edit Profile", edit_user_path %>
+  <%= link_to "New Event", new_event_path %>
   <%= button_to "Logout", '/session', method: 'delete', data: { turbo_confirm: 'Do you want to logout?' } %>
 <% end %>

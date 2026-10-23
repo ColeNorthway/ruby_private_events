@@ -1,15 +1,12 @@
-<div class="event">
-  <h4><%= event.name %></h4>
-  <p>Date: <%= event.date %></p>
-  <p>Location: <%= event.location %></p>
-  <p>Host: <%= event.host.username %></p>
+<%= render partial: 'error', locals: { obj: event } %>
 
-  <% if params[:action] == 'index' %>
-    <%= link_to "Show", event_path(event.id) %>
-  <% end %>
-</div>
+<% if params[:action] == 'index' || params[:action] == 'show' %>
+  <%= render partial: 'inspect', locals: { event: event } %>
+<% else %>
+  <%= render partial: 'modify', locals: { event: event } %>
+<% end %>
 
-<% if params[:action] == 'show' %>
+<% if params[:action] != 'index' %>
   <%= render 'footer' %>
 <% else %>
   <br>

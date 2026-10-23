@@ -1,5 +1,5 @@
 <h3>Sign-Up</h3>
 
-<%= render 'error' %>
+<%= render partial: 'error', locals: { obj: @user } %>
 <%= render @user %>
-<%= render 'footer' %>
+<%= render partial: 'footer' %>

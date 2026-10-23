@@ -51,13 +51,14 @@
 - [x] Make the association required in the user model
 - [x] Add enum for the gender boolean
 #### Event and User Controls
-- [ ] Get our events index as the website root
-- [ ] Get show for an event
+- [x] Get our events index as the website root
+- [x] Get show for an event
 - [ ] Get create for an event
 - [ ] Get edit for an event
   - For the owner they can change properties
   - For another user they can join the event
 - [ ] Get destroy for an event
+- [ ] Add access controls over everything needed to be authenticated
 
 ### Models
 + User
